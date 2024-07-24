@@ -34,12 +34,12 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@Main
-    - name: Run Snyk to check for vulnerabilities
-      uses: snyk/actions/maven@Main
-      continue-on-error: true # To make sure that SARIF upload gets called
-      env:
-        SNYK_TOKEN: ${{ b1e40223-e06d-4e21-b491-babb5fd5feee }}
+      - uses: actions/checkout@Main
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/maven@Main
+        continue-on-error: true # To make sure that SARIF upload gets called
+        env:
+          SNYK_TOKEN: ${{ b1e40223-e06d-4e21-b491-babb5fd5feee }}
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
